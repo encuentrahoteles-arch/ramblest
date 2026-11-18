@@ -567,6 +567,194 @@
       margin-bottom: 18px;
     }
 
+    /* Header nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--slate);
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Info Sections (Cómo funciona, Grupales, Preguntas) */
+    .info-section {
+      margin-top: 56px;
+      scroll-margin-top: 90px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+
+    .section-intro h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .section-intro p {
+      color: var(--slate);
+      font-size: 0.96rem;
+    }
+
+    /* Steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px 22px;
+      text-align: center;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin: 0 auto 14px;
+    }
+
+    .step-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      color: var(--slate);
+      font-size: 0.95rem;
+    }
+
+    /* Group band */
+    .group-band {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .group-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .group-text {
+      padding: 32px;
+    }
+
+    .group-text h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .group-text p {
+      color: var(--slate);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    .group-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .group-list li {
+      padding-left: 26px;
+      position: relative;
+      font-size: 0.95rem;
+      color: var(--navy);
+    }
+
+    .group-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 20px;
+    }
+
+    .faq-item summary {
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      color: var(--primary);
+      font-size: 1.3rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .faq-item[open ] summary::after {
+      content: "−";
+    }
+
+    .faq-item p {
+      color: var(--slate);
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
     /* Instagram CTA Section */
     .instagram-cta {
       margin-top: 56px;
@@ -820,6 +1008,18 @@
       .btn-alert {
         display: none;
       }
+      .nav-links {
+        display: none;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .group-band {
+        grid-template-columns: 1fr;
+      }
+      .group-media img {
+        min-height: 220px;
+      }
     }
   </style>
 </head>
@@ -835,6 +1035,12 @@
         <img class="logo-img" src="assets/logo.png" alt="Ramblest" />
         <div>Ramblest</div>
       </a>
+
+      <nav class="nav-links">
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#grupales">Grupales</a>
+        <a href="#preguntas">Preguntas</a>
+      </nav>
 
       <div class="nav-actions">
         <button class="btn-fav-toggle" id="favToggleBtn" onclick="toggleOnlyFavorites()">
@@ -905,6 +1111,85 @@
     </div>
 
     <div class="deals-grid" id="dealsGrid"></div>
+
+    <!-- Cómo funciona -->
+    <section class="info-section" id="como-funciona">
+      <div class="section-intro">
+        <h2>Reservar es así de fácil</h2>
+        <p>Sin registros eternos ni letra pequeña. En tres pasos estás con la maleta casi hecha.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Elige tu chollo</h3>
+          <p>El destino que te enamore, con vuelo + hotel y el itinerario ya pensado para aprovechar cada día.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Mira el precio en vivo</h3>
+          <p>Entra en el chollo y comprueba el precio actualizado en ese momento. Lo que ves es lo que pagas al reservar.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Reserva y a viajar</h3>
+          <p>Confirmas tu reserva en un par de minutos y recibes todo en tu correo. Solo queda hacer la maleta.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Viajes grupales -->
+    <section class="info-section" id="grupales">
+      <div class="section-intro">
+        <h2>Viajes grupales Ramblest</h2>
+        <p>Los mismos chollos, pero compartidos: viajas con gente con tus mismas ganas, con la ruta ya organizada y sin preocuparte de nada.</p>
+      </div>
+      <div class="group-band">
+        <div class="group-media">
+          <img src="assets/grupo.webp" alt="Grupo de viajeros con mochilas mirando el paisaje desde una colina" loading="lazy" />
+        </div>
+        <div class="group-text">
+          <h3>El viaje hecho, la compañía incluida</h3>
+          <p>Ideal si te apetece viajar pero no quieres ir solo, o si pasas de organizarlo todo tú. Nosotros ponemos el destino, las fechas y el itinerario completo — tú solo traes las ganas.</p>
+          <ul class="group-list">
+            <li>Mismo destino y mismas fechas para todo el grupo</li>
+            <li>Ruta cerrada día a día, compartida antes de reservar</li>
+            <li>Vuelo + hotel a precio de chollo, como siempre</li>
+            <li>Grupo reducido y buen ambiente, garantizado</li>
+          </ul>
+          <p><strong>La primera salida se anuncia muy pronto</strong> — y las plazas vuelan. Síguenos para enterarte antes que nadie.</p>
+          <a class="btn-instagram" href="https://www.instagram.com/ramblest.travel/" target="_blank" rel="noopener">Quiero enterarme primero →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preguntas frecuentes -->
+    <section class="info-section" id="preguntas">
+      <div class="section-intro">
+        <h2>Antes de reservar, lo típico que preguntas</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Qué incluye exactamente cada chollo?</summary>
+          <p>Vuelos ida y vuelta + hotel en la zona que recomendamos, con el itinerario día a día: qué ver, qué actividades merecen la pena, cómo moverte y dónde comer bien en destino. En cada chollo verás el detalle antes de reservar.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Por qué tengo que ver el precio en vivo?</summary>
+          <p>Porque los vuelos y los hoteles suben y bajan constantemente y las plazas baratas se agotan. Al entrar en el chollo ves el precio real de ese momento, sin sorpresas: si te encaja, reserva en el acto y te lo aseguras.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Puedo cambiar las fechas o salir desde otra ciudad?</summary>
+          <p>En muchos chollos sí: las fechas son flexibles y suele haber salidas desde varias ciudades españolas. Al comprobar el precio podrás ajustar fechas y origen y ver cómo queda el total antes de pagar nada.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Y si el precio ha subido cuando entro?</summary>
+          <p>Puede pasar si las plazas del chollo se han agotado — por eso insistimos en no pensarlo mucho. Vuelve en unos días: publicamos chollos nuevos cada semana, o pídenos en Instagram que busquemos ese destino con tus fechas.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cómo me apunto a un viaje grupal?</summary>
+          <p>Anunciamos destino, fechas y plazas primero en Instagram (@ramblest.travel). Cuando salga la convocatoria, reservas tu plaza con el enlace del viaje y viajas con el grupo en las fechas cerradas, con el itinerario ya organizado.</p>
+        </details>
+      </div>
+    </section>
 
     <!-- Instagram CTA -->
     <section class="instagram-cta" id="instagramSection">
